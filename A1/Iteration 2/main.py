@@ -23,7 +23,7 @@ class DataStore:
             f.close()
 
     def get(self, key):
-        time.sleep(5)
+        time.sleep(1)
         with open(self.dataPath, "r") as file:
             for line in file:
                 line = line.split(",")
@@ -31,12 +31,14 @@ class DataStore:
                 if str(line[-2]).strip() == str(key).strip():
                     print("kfnlksdnfksnfd")
                     return (
-                        str(line[-1]).strip()
+                        "VALUE"
                         + " "
                         + key
-                        + len(bytes(str(line[-1]).strip()), "utf-8")
+                        + " "
+                        + str(len(str(line[-1]).strip()))
                         + "\r\n"
-                        + " <FOUND>\n"
+                        + str(line[-1]).strip()
+                        + "\nEND\r\n"
                     )
         return "\n<NOT FOUND>\r\n"
 
@@ -75,7 +77,7 @@ class DataStore:
                 + self.cleanData(value)
                 + "\n"
             )
-            time.sleep(4)
+            time.sleep(1)
         return "STORED\r\n"
 
 
@@ -127,7 +129,6 @@ class Server:
                 if data == []:
                     continue
                 elif data[0] == "set" and "noreply" in data:
-                    print("Here for memcache")
                     queue.append(self.parseCommand2(client_socket, data))
                 elif data[0] == "get":
                     # Execute it and make command empty again
@@ -213,8 +214,10 @@ class Server:
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server_socket.bind((self.host, self.port))
         server_socket.listen()
+        print("Server running on port 9889")
         Q = []
         th = threading.Thread(target=self.consumerThread, args=(Q,))
+        print("> Spawned queue thread.")
         th.start()
         while True:
             client_socket, addr = server_socket.accept()
