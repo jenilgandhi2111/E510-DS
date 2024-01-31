@@ -40,7 +40,7 @@ class DataStore:
                         + str(line[-1]).strip()
                         + "\nEND\r\n"
                     )
-        return "\n<NOT FOUND>\r\n"
+        return "\n<NOT FOUND>\r\nEND\r\n"
 
     def getHelper(self, key):
         # Read the file and find out the key
@@ -90,31 +90,12 @@ class Server:
     def cleanData(self, data):
         return re.sub(r"[^a-zA-Z0-9]", "", data)
 
-    # def parseCommand(self, ADDR, command: str):
-    #     splitCommand = command.split(" ")
-    #     print(splitCommand)
-    #     if splitCommand[0].lower() == "get":
-    #         return self.dataStore.get(splitCommand[-1])
-    #     elif splitCommand[0].lower() == "set":
-    #         return self.dataStore.set(splitCommand[-2], splitCommand[-1])
-    #     return "UNK CMD"
-
-    def parseCommand1(self, client_socket, data: str):
-        data = data.split(" ")
-        if data[0] == "set":
-            # print("-=========================================\n", data[-1].split("\n"))
-            if "noreply" in data[-1]:
-                data[-1] = data[-1].split("\n")[1].split("\r")[0]
-            return [client_socket, "set", data[1], self.cleanData(data[-1])]
-        elif data[0] == "get":
-            return [client_socket, "get", data[-1]]
-        else:
-            return False
-
     def parseCommand2(self, client_socket, data):
         print(data)
         print(len(data), data[0], data[1], data[-1])
         if data[0] == "set":
+            if "1024" in data[1]:
+                data[1] = data[1].replace("1024", "")
             return [client_socket, "set", data[1], data[-1]]
         elif data[0] == "get":
             return [client_socket, "get", data[-1]]
@@ -146,23 +127,12 @@ class Server:
                 else:
                     client_socket.send(bytes("<UNK COMMAND>", "utf-8"))
 
-                # print("Recieved from address", addr, " Data:", data.split())
-                # if data == []:
-                #     continue
-                # ans = self.parseCommand1(client_socket, data)
-                # if ans != False:
-                #     queue.append(ans)
             except ConnectionResetError:
                 print("Connection reset by client:", addr)
                 break
             except Exception as e:
                 print("Error:", e)
                 break
-            # if data[0] == "get":
-            #     # queue.append([client_socket, "get", data[1]])
-            #     queue.append(self.)
-            # elif data[0] == "set":
-            #     queue.append([client_socket, "set", data[1], data[2]])
 
     def getThread(self, key, socketObj):
         return socketObj.send(bytes(self.dataStore.get(key), "utf-8"))

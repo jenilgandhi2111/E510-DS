@@ -16,6 +16,7 @@ commands = None
 with open(sys.argv[1], "r") as file:
     commands = json.load(file)
 
+print("Here for ", sys.argv)
 answer = []
 for command in commands:
     if command["type"] == "set":
@@ -28,13 +29,23 @@ for command in commands:
 
     else:
         answer.append(
-            client.raw_command("get " + command["key"] + "\n")
+            client.raw_command("get " + command["key"] + "\n", end_tokens="END\r\n")
             + bytes("::TIME:" + str(time.time()), "utf-8")
         )
+    if "client3" in sys.argv[1]:
+        print("Executing")
     time.sleep(1)
 
+storagePath = (
+    "./Outputs/"
+    + sys.argv[1].split("/")[2]
+    + "/"
+    + sys.argv[1].split("/")[3].split(".")[0]
+    + ".txt"
+)
+print(storagePath)
 with open(
-    "./Outputs/" + sys.argv[1].split("/")[2].split(".")[0] + ".txt",
+    storagePath,
     "w",
     encoding="utf-8",
 ) as file:

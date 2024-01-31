@@ -1,0 +1,18 @@
+[
+    {"type": "get", "key": "a", "expected": "END\r\n"},
+    {"type": "get", "key": "b", "expected": "END\r\n"},
+    {
+        "type": "set",
+        "key": "a",
+        "value": "d",
+        "expected": "STORED\r\n"
+    },
+    {
+        "type": "set",
+        "key": "b",
+        "value": "z",
+        "expected": "STORED\r\n"
+    },
+    {"type": "get", "key": "a", "expected": "END\r\n"},
+    {"type": "get", "key": "b", "expected": "END\r\n"}
+]

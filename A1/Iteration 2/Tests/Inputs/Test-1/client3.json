@@ -1,0 +1,11 @@
+[
+    {"type": "get", "key": "b", "expected": "END\r\n"},
+    {
+        "type": "set",
+        "key": "a",
+        "value": "d",
+        "expected": "NOT STORED\r\n"
+    },
+    {"type": "get", "key": "a", "expected": "END\r\n"},    
+    {"type": "get", "key": "d", "expected": "END\r\n"}    
+]

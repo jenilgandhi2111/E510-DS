@@ -1,0 +1,18 @@
+[
+    {
+        "type": "set",
+        "key": "a",
+        "value": "b",
+        "bufferSize":1024,
+        "expected": "STORED\r\n"
+    },
+    {"type": "get", "key": "a", "expected": "END\r\n"},
+    {"type": "get", "key": "b", "expected": "END\r\n"},
+    {
+        "type": "set",
+        "key": "b",
+        "value": "c",
+        "expected": "STORED\r\n"
+    },
+    {"type": "get", "key": "b", "expected": "END\r\n"}
+]
