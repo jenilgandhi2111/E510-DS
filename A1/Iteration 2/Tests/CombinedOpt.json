@@ -1,0 +1,86 @@
+[
+  [
+    "client3",
+    "NOT STORED",
+    "",
+    "TIME",
+    1706677886.032693
+  ],
+  [
+    "client2",
+    "NOT STORED",
+    "",
+    "TIME",
+    1706677886.035212
+  ],
+  [
+    "client1",
+    "NOT STORED",
+    "",
+    "TIME",
+    1706677886.036724
+  ],
+  [
+    "client3",
+    "VALUE example 7",
+    "",
+    "TIME",
+    1706677888.45211
+  ],
+  [
+    "client1",
+    "VALUE example 7",
+    "",
+    "TIME",
+    1706677888.468165
+  ],
+  [
+    "client2",
+    "VALUE example 7",
+    "",
+    "TIME",
+    1706677888.54427
+  ],
+  [
+    "client1",
+    "<NOT FOUND>",
+    "",
+    "TIME",
+    1706677890.947596
+  ],
+  [
+    "client2",
+    "<NOT FOUND>",
+    "",
+    "TIME",
+    1706677890.947596
+  ],
+  [
+    "client3",
+    "<NOT FOUND>",
+    "",
+    "TIME",
+    1706677891.04015
+  ],
+  [
+    "client2",
+    "NOT STORED",
+    "",
+    "TIME",
+    1706677892.037045
+  ],
+  [
+    "client1",
+    "NOT STORED",
+    "",
+    "TIME",
+    1706677892.039039
+  ],
+  [
+    "client3",
+    "NOT STORED",
+    "",
+    "TIME",
+    1706677892.069598
+  ]
+]

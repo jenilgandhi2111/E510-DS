@@ -1,0 +1,16 @@
+[
+    {
+        "type": "set",
+        "key": "example",
+        "value": "example1",
+        "expected": "NOT STORED\r\n"
+    },
+    {"type": "get", "key": "example", "expected": "END\r\n"},
+    {"type": "get", "key": "example2", "expected": "END\r\n"},
+    {
+        "type": "set",
+        "key": "example2",
+        "value": "example2value",
+        "expected": "STORED\r\n"
+    }
+]
