@@ -1,0 +1,11 @@
+[  
+    {"type": "get", "key": "example", "expected": "END\r\n"},
+    {"type": "get", "key": "example1", "expected": "END\r\n"},
+    {"type": "get", "key": "example2", "expected": "END\r\n"},
+    {"type": "get", "key": "example3", "expected": "END\r\n"},
+    {"type": "get", "key": "example4", "expected": "END\r\n"},
+    {"type": "get", "key": "example5", "expected": "END\r\n"},
+    {"type": "get", "key": "example6", "expected": "END\r\n"},
+    {"type": "get", "key": "example7", "expected": "END\r\n"},
+    {"type": "get", "key": "example8", "expected": "END\r\n"}
+]

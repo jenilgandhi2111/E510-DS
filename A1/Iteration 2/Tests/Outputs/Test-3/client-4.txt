@@ -1,0 +1,8 @@
+=======================
+VALUE example 8
+example1
+::TIME:1706757370.3180854
+=======================
+VALUE example2 13
+example2value
+::TIME:1706757372.8809464

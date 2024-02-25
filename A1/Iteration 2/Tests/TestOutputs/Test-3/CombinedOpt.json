@@ -1,0 +1,172 @@
+[
+  [
+    "client-2",
+    1706757369.0146334,
+    " NOT STORED"
+  ],
+  [
+    "client-3",
+    1706757370.2204647,
+    " VALUE b 1  c "
+  ],
+  [
+    "client-1",
+    1706757370.2729878,
+    " VALUE example 8  example1 "
+  ],
+  [
+    "client-4",
+    1706757370.3180854,
+    " VALUE example 8  example1 "
+  ],
+  [
+    "client-5",
+    1706757370.319765,
+    " NOT STORED"
+  ],
+  [
+    "client-7",
+    1706757370.3207705,
+    " NOT STORED"
+  ],
+  [
+    "client-6",
+    1706757370.322756,
+    " NOT STORED"
+  ],
+  [
+    "client-2",
+    1706757371.5321047,
+    " VALUE a 1  b "
+  ],
+  [
+    "client-3",
+    1706757371.5469065,
+    " NOT STORED"
+  ],
+  [
+    "client-6",
+    1706757371.549572,
+    " NOT STORED"
+  ],
+  [
+    "client-4",
+    1706757372.8809464,
+    " VALUE example2 13  example2value "
+  ],
+  [
+    "client-7",
+    1706757372.9616578,
+    " NOT STORED"
+  ],
+  [
+    "client-2",
+    1706757374.1145465,
+    " VALUE b 1  c "
+  ],
+  [
+    "client-3",
+    1706757374.1145465,
+    " VALUE a 1  b "
+  ],
+  [
+    "client-5",
+    1706757374.3655975,
+    " VALUE example 8  example1 "
+  ],
+  [
+    "client-1",
+    1706757374.4044375,
+    "  <NOT FOUND>  "
+  ],
+  [
+    "client-6",
+    1706757374.407899,
+    " NOT STORED"
+  ],
+  [
+    "client-7",
+    1706757374.4118872,
+    " NOT STORED"
+  ],
+  [
+    "client-2",
+    1706757375.165471,
+    " NOT STORED"
+  ],
+  [
+    "client-3",
+    1706757376.405063,
+    "  <NOT FOUND>  "
+  ],
+  [
+    "client-5",
+    1706757376.717193,
+    " VALUE example2 13  example2value "
+  ],
+  [
+    "client-1",
+    1706757376.8585007,
+    " VALUE example2 13  example2value "
+  ],
+  [
+    "client-6",
+    1706757376.8605156,
+    " NOT STORED"
+  ],
+  [
+    "client-7",
+    1706757376.8625002,
+    " NOT STORED"
+  ],
+  [
+    "client-2",
+    1706757378.0333002,
+    " VALUE b 1  c "
+  ],
+  [
+    "client-5",
+    1706757378.0524938,
+    " NOT STORED"
+  ],
+  [
+    "client-7",
+    1706757378.054508,
+    " NOT STORED"
+  ],
+  [
+    "client-1",
+    1706757379.2695587,
+    "  <NOT FOUND>  "
+  ],
+  [
+    "client-6",
+    1706757379.2722955,
+    " NOT STORED"
+  ],
+  [
+    "client-1",
+    1706757381.5245998,
+    "  <NOT FOUND>  "
+  ],
+  [
+    "client-1",
+    1706757383.7759159,
+    " VALUE example5 8  example1 "
+  ],
+  [
+    "client-1",
+    1706757386.1320345,
+    " VALUE example6 8  example1 "
+  ],
+  [
+    "client-1",
+    1706757388.360959,
+    " VALUE example7 8  example1 "
+  ],
+  [
+    "client-1",
+    1706757390.6376038,
+    " VALUE example8 8  example1 "
+  ]
+]

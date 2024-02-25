@@ -1,0 +1,4 @@
+[  
+    {"type": "get", "key": "example", "expected": "END\r\n"},
+    {"type": "get", "key": "example2", "expected": "END\r\n"}
+]

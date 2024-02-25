@@ -1,0 +1,33 @@
+[
+    {
+        "type": "set",
+        "key": "example",
+        "value": "example1",
+        "expected": "NOT STORED\r\n"
+    },
+    {
+        "type": "set",
+        "key": "example8",
+        "value": "example1",
+        "expected": "NOT STORED\r\n"
+    },
+    {
+        "type": "set",
+        "key": "example7",
+        "value": "example1",
+        "expected": "NOT STORED\r\n"
+    },
+    {
+        "type": "set",
+        "key": "example6",
+        "value": "example1",
+        "expected": "NOT STORED\r\n"
+    },
+    {
+        "type": "set",
+        "key": "example5",
+        "value": "example1",
+        "expected": "NOT STORED\r\n"
+    }
+    
+]
