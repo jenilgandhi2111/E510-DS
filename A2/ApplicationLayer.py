@@ -5,9 +5,10 @@ import time
 
 
 class ApplicationLayer:
-    def __init__(self, blockId, middlewarePort, middlewareHost, port, host):
+    def __init__(self, blockId, middlewarePort, middlewareHost, port, host, testCaseId):
         self.middlewarePort = middlewarePort
         self.middlewareHost = middlewareHost
+        self.outputFile = "./outputs/" + testCaseId + "/"
         self.blockId = blockId
         self.port = port
         self.host = host
@@ -49,7 +50,7 @@ class ApplicationLayer:
             "Z",
         ]
 
-        tm = 5
+        tm = random.randint(1, 4)
         cntr = 0
         while True:
             time.sleep(tm)
@@ -84,9 +85,11 @@ class ApplicationLayer:
                 self.processCnt,
             )
             self.processCnt += 1
-            with open("./outputs/" + str(self.blockId) + ".txt", "a") as file:
-                file.write("\n"+
-                    str(self.processCnt)+".) Application processes"
+            with open(self.outputFile + str(self.blockId) + ".txt", "a") as file:
+                file.write(
+                    "\n"
+                    + str(self.processCnt)
+                    + ".) Application processes"
                     + str(data.decode("utf-8")).split(",")[3]
                     + " On block ID:"
                     + str(self.blockId)

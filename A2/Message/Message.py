@@ -2,14 +2,14 @@ import hashlib
 
 
 class Message:
-    def __init__(self, blockId, lamportTime, message):
+    def __init__(self, blockId, lamportTime, message, totalBlocks):
         self.lamportTime = lamportTime
         self.message = message
         self.blockId = blockId
         self.hashValue = (
             str(self.blockId) + "," + str(self.lamportTime) + "," + str(self.message)
         )
-        self.RemAcks = 2
+        self.RemAcks = totalBlocks
 
     def computeHash(self):
         return str(
@@ -30,9 +30,9 @@ class Message:
             + str(self.hashValue)
         )
 
-    def deserializeMessage(data: str):
+    def deserializeMessage(data: str, acks):
         data = data.split(",")
-        message = Message(data[1], data[2], data[3])
+        message = Message(data[1], data[2], data[3], acks)
         return message
 
     def __str__(self):

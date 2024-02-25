@@ -6,7 +6,7 @@ import threading
 
 class Block:
     def readConfig(self):
-        with open("./Config/1.json", "r") as file:
+        with open(self.configFile, "r") as file:
             data = json.load(file)
             return data[str(self.blockId)]
 
@@ -17,6 +17,7 @@ class Block:
             self.config["Application"]["MiddlewareDown"]["host"],
             self.config["Application"]["MiddlewareUp"]["port"],
             self.config["Application"]["MiddlewareUp"]["host"],
+            self.testCase,
         )
 
     def spawnMiddleware(self):
@@ -30,12 +31,14 @@ class Block:
             self.config["Middleware"]["NetworkUp"]["host"],
             self.config["Middleware"]["NetworkDown"]["port"],
             self.config["Middleware"]["NetworkDown"]["host"],
+            self.testCase,
         )
 
-    def __init__(self, blockId):
+    def __init__(self, blockId, testCaseId):
         self.blockId = blockId
+        self.configFile = "./Config/" + testCaseId + "/" + testCaseId + ".json"
         self.config = self.readConfig()
-        print("Here")
+        self.testCase = testCaseId
 
         threading.Thread(target=self.spawnMiddleware).start()
         threading.Thread(target=self.spawnApplication).start()

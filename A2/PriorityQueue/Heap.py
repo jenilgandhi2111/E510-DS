@@ -25,7 +25,7 @@ class Heap:
 
     def delete(self, comparator):
         if len(self.elems) == 0:
-            return
+            return None
         # Deletes an element from the heap
         rootElem = self.elems[0]
 

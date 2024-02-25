@@ -11,7 +11,9 @@ import time
 class MiddleWare:
 
     def getBroadcastPorts(self):
-        with open("./Config/1_networkUp.json") as file:
+        with open(
+            "./Config/" + self.testcase + "/" + self.testcase + "_networkUp.json"
+        ) as file:
             return json.load(file)
 
     def __init__(
@@ -25,6 +27,7 @@ class MiddleWare:
         networkUpHost,
         networkDownPort,
         networkDownHost,
+        testcase,
     ):
         self.blockId = blockId
         self.applicationUpPort = applicationUpPort
@@ -37,6 +40,9 @@ class MiddleWare:
         self.networkDownHost = networkDownHost
         self.time = self.blockId
         self.queue = Heap([], comparator=MiddleWare.comparator)
+        self.acks = []
+        self.testcase = testcase
+        self.maxData = len(self.getBroadcastPorts())
 
         # Threads to listen for application down, network up and process queue
         threading.Thread(target=self.listenApplicationDown).start()
@@ -49,30 +55,42 @@ class MiddleWare:
     def handleMessageForNetworkHelper(self, data: str):
         print("Recieved Data from Network:", data)
         if data.startswith("MSG"):
-            message = Message.deserializeMessage(data)
+            message = Message.deserializeMessage(data, self.maxData)
             self.adjustTime(message.lamportTime)
             # add the message in the queue
             self.queue.insert(message, comparator=MiddleWare.comparator)
 
         elif data.startswith("ACK"):
             message = AcknowledgeMessage.deserializeMessage(data)
+            self.acks.append(message)
             # compare the hashvalue in the message and the one we recieved
-            for m in self.queue.elems:
-                if m.hashValue == message.hashValue:
-                    m.RemAcks -= 1
+            # for m in self.queue.elems:
+            #     for acks in self.acks:
+            #         if m.hashValue == acks.hashValue:
+            #             m.RemAcks -= 1
+            for msg in self.queue.elems:
+                for i in range(len(self.acks)):
+                    ack = self.acks[i]
+                    if ack.hashValue == msg.hashValue:
+                        msg.RemAcks -= 1
+                        self.acks.pop(i)
 
     def processQueue(self):
         dic = {}
         while True:
             # Check if the message at the top of the stack has recieve
             if len(self.queue.elems) != 0:
-                if self.queue.elems[0].RemAcks == 0:
+                # time.sleep(1)
+                # self.queue.printHeap()
+                if self.queue.elems[0].RemAcks <= 0:
                     # time.sleep(3)
                     # Process the message and send it to application layer and broadcast acks
-                    self.sendMessageToApplication(self.queue.elems[0])
-                    self.queue.delete(comparator=MiddleWare.comparator)
+                    self.sendMessageToApplication(
+                        self.queue.delete(comparator=MiddleWare.comparator)
+                    )
+
                 else:
-                    # print("Remaning Acks:", self.queue.elems[0].RemAcks)
+                    print("Remaning Acks:", self.queue.elems[0].RemAcks)
                     if self.queue.elems[0] not in dic.keys():
                         time.sleep(1)
                         self.sendMessageToNetwork(
@@ -130,7 +148,7 @@ class MiddleWare:
             if data == "":
                 continue
             print("Data 127", data)
-            message = Message(self.blockId, self.time, data)
+            message = Message(self.blockId, self.time, data, self.maxData)
 
             # Send this to broadcast via the netowrkdown port
             # message = Message(self.blockId, self.time, message)
