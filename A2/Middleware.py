@@ -63,11 +63,6 @@ class MiddleWare:
         elif data.startswith("ACK"):
             message = AcknowledgeMessage.deserializeMessage(data)
             self.acks.append(message)
-            # compare the hashvalue in the message and the one we recieved
-            # for m in self.queue.elems:
-            #     for acks in self.acks:
-            #         if m.hashValue == acks.hashValue:
-            #             m.RemAcks -= 1
             for msg in self.queue.elems:
                 for i in range(len(self.acks)):
                     ack = self.acks[i]
