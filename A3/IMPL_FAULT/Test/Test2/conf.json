@@ -1,0 +1,52 @@
+{
+  "master": {
+    "recvPort": 5000,
+    "host": "localhost"
+  },
+  "mappers": {
+    "M1": {
+      "id": "M1",
+      "recvPort": 5001,
+      "host": "localhost",
+      "masterPort": 5000,
+      "masterHost": "localhost"
+    },
+    "M2": {
+      "id": "M2",
+      "recvPort": 5002,
+      "host": "localhost",
+      "masterPort": 5000,
+      "masterHost": "localhost"
+    },
+    "M3": {
+      "id": "M3",
+      "recvPort": 5003,
+      "host": "localhost",
+      "masterPort": 5000,
+      "masterHost": "localhost"
+    },
+    "M4": {
+      "id": "M4",
+      "recvPort": 5004,
+      "host": "localhost",
+      "masterPort": 5000,
+      "masterHost": "localhost"
+    }
+  },
+  "reducers": {
+    "R1": {
+      "id": "R1",
+      "recvPort": 5005,
+      "host": "localhost",
+      "masterPort": 5000,
+      "masterHost": "localhost"
+    },
+    "R2": {
+      "id": "R2",
+      "recvPort": 5006,
+      "host": "localhost",
+      "masterPort": 5000,
+      "masterHost": "localhost"
+    }
+  }
+}
