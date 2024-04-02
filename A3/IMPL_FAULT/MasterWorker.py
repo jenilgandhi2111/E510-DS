@@ -73,7 +73,7 @@ class Master:
         self.currentState = 1 # Indicates waiting for mapping to complete
         self.mapperMetadata[mid]["status"] = "mapping" # Now again wait for the done message from this mapper
         self.handleSpawnmapperHelper(mid,True)
-        self.displayMessage(" Respawned mapper "+mid)
+        self.displayMessage("Respawned mapper "+mid)
         
             
 
@@ -81,9 +81,10 @@ class Master:
 
     def respawnReducer(self, rid):
         # Send clear buffer messages to all reducers
-        countFailedMap = self.broadCastMappers(StopMessage("master"))
-        countFailed = self.broadCastReducers(ClearMessage("master"))
-        self.handleSpawnReducerHelper(rid)
+        countFailedMap = self.broadCastMappers(StopMessage(sender="master"))
+        countFailed = self.broadCastReducers(ClearMessage(sender="master"))
+        self.handleSpawnReducerHelper(rid,True)
+        self.displayMessage("Respawning reducer "+rid)
         time.sleep(0.01)
         self.currentState = 4 # Resend the request to send to all mappers
 
@@ -105,7 +106,7 @@ class Master:
                     self.respawnMapper(mapper)
 
                     # Go to spawnmappers state
-            if self.currentState > 5:
+            if self.currentState >= 4:
                 for reducer in self.reducerMetadata:
                     if (
                         datetime.now().timestamp()
@@ -174,7 +175,7 @@ class Master:
         for mapper in self.mapperMetadata:
             self.handleSpawnmapperHelper(mapper,False)
 
-    def handleSpawnReducerHelper(self, rid,restart):
+    def handleSpawnReducerHelper(self, rid,restart=False):
         multiprocessing.Process(
             target=ReducerWorker,
             args=(

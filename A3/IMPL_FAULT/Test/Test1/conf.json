@@ -39,7 +39,7 @@
       "host": "localhost",
       "masterPort": 5000,
       "masterHost": "localhost",
-      "DEATH": "False"
+      "DEATH": "True"
     },
     "R2": {
       "id": "R2",

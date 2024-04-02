@@ -17,6 +17,7 @@ from Message import PulseMessage
 from Message import ReducerDataMessage
 from signal import SIGINT
 from colorama import Fore, Style
+import random
 
 
 class ReducerWorker:
@@ -73,6 +74,7 @@ class ReducerWorker:
             outputFileLocation,
         ]
         try:
+            self.timedKill()
             subprocess.run(command, shell=True)
             self.displayMessage(f"has completed reducing task!")
             self.sendToMaster(DoneMessage(self.identifier))
@@ -143,6 +145,24 @@ class ReducerWorker:
             if data != "":
                 self.handleMessage(data)
 
+    def timedKill(self):
+        if self.restart:
+            return
+        # time.sleep(random.randint(1,100)/100)
+        if self.DIE:
+            os.kill(os.getpid(),SIGINT)
+    
+    def clearInputOutputBuffer(self):
+        f = open(os.path.join(
+            os.getcwd(), "Test", self.homeDirName, self.identifier, "reducerInput.txt"
+        ),'r+')
+        f.truncate(0)
+        f = open(os.path.join(
+            os.getcwd(), "Test", self.homeDirName, self.identifier, "reducerOut.txt"
+        ),'r+')
+        f.truncate(0)
+        
+
 
     def __init__(self, identifier, reducingFunctionLocation, testcase, numMappers,restart):
         self.state = 0
@@ -158,7 +178,8 @@ class ReducerWorker:
         self.host = self.configData["host"]
         self.restart = restart
         self.DIE = False
-        if "DEATH" in self.configData:
+        self.clearInputOutputBuffer()
+        if self.configData["DEATH"] == "True":
             self.DIE = True
         threading.Thread(target=self.listenRequests).start()
         threading.Thread(target=self.sendPulseToMaster).start()
