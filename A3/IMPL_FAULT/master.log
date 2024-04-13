@@ -1,0 +1,52 @@
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mis listening on port:localhost:5000[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mMapping tasks done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning reducers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91msending request to send to mappers and waiting for reducers to finish.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSending kill messages.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all mappers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all reducers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mKilling master.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mis listening on port:localhost:5000[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mMapping tasks done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning reducers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91msending request to send to mappers and waiting for reducers to finish.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSending kill messages.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all mappers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all reducers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mKilling master.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mis listening on port:localhost:5000[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mMapping tasks done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning reducers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91msending request to send to mappers and waiting for reducers to finish.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSending kill messages.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all mappers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all reducers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mKilling master.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mis listening on port:localhost:5000[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mMapping tasks done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning reducers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91msending request to send to mappers and waiting for reducers to finish.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSending kill messages.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all mappers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all reducers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mKilling master.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mis listening on port:localhost:5000[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning mappers done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mMapper M1 has died![0m
+DEBUG:root:[32m[1m> Master...........[0m[91mRespawned mapper M1[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mMapping tasks done.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSpwaning reducers.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91msending request to send to mappers and waiting for reducers to finish.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mSending kill messages.[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all mappers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mkilled all reducers[0m
+DEBUG:root:[32m[1m> Master...........[0m[91mKilling master.[0m

@@ -20,7 +20,7 @@
       "masterPort": 5000,
       "masterHost": "localhost",
       "DEATH": "False",
-      "DIESTATE": "None"
+      "DIESTATE": "mapping"
     },
     "M3": {
       "id": "M3",
@@ -39,7 +39,7 @@
       "host": "localhost",
       "masterPort": 5000,
       "masterHost": "localhost",
-      "DEATH": "True"
+      "DEATH": "False"
     },
     "R2": {
       "id": "R2",

@@ -23,6 +23,7 @@ class Message:
 
     def getMessageType(self):
         return self.message["messageType"]
+    
 
 
 """

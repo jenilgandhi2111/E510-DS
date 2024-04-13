@@ -1,0 +1,2 @@
+buffalo	D1
+buffalo	D2

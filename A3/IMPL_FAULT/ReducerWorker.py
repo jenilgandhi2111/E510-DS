@@ -18,10 +18,22 @@ from Message import ReducerDataMessage
 from signal import SIGINT
 from colorama import Fore, Style
 import random
+import logging
 
 
 class ReducerWorker:
     def displayMessage(self,msg):
+        logger = logging.getLogger(__name__)
+        logging.basicConfig(filename='reducer.log', encoding='utf-8', level=logging.DEBUG)
+        logging.debug(Fore.MAGENTA
+            + Style.BRIGHT
+            + "> Reducer-{"
+            + self.identifier
+            + "}....."
+            + Style.RESET_ALL
+            + Fore.LIGHTGREEN_EX
+            + msg
+            + Style.RESET_ALL)
         print(
             Fore.MAGENTA
             + Style.BRIGHT
@@ -40,16 +52,19 @@ class ReducerWorker:
             return jsonData["reducers"][self.identifier]
 
     def sendToMaster(self, message: Message):
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.connect((self.masterSendHost, self.masterSendPort))
-        sock.sendall(
-            bytes(message.serializeMessage(), "utf-8")
-        )  # Sends the object from the head of the queue after it is popped
-        sock.close()
-        return True
-
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.connect((self.masterSendHost, self.masterSendPort))
+            sock.sendall(
+                bytes(message.serializeMessage(), "utf-8")
+            )  # Sends the object from the head of the queue after it is popped
+            sock.close()
+            return True
+        except Exception as E:
+            self.displayMessage(str(E))
+            return False
     def sendPulseToMaster(self):
-        time.sleep(0.1)
+        time.sleep(.5)
         self.displayMessage(f"Pulse started from reducer:{self.identifier}")
         while True:
             self.sendToMaster(PulseMessage(str(self.identifier)))
@@ -74,6 +89,7 @@ class ReducerWorker:
             outputFileLocation,
         ]
         try:
+            self.displayMessage("Num mappers:"+str(self.numMappers))
             self.timedKill()
             subprocess.run(command, shell=True)
             self.displayMessage(f"has completed reducing task!")
@@ -120,15 +136,20 @@ class ReducerWorker:
             )  # Write this data to file
         elif "_KillMessage_" in messageStr:
             # Handle kill message here
+            self.STOP = True
+            time.sleep(0.2)
             self.displayMessage(f"is killed")
             os.kill(os.getpid(), SIGINT)
         
         elif "_ClearMessage_" in messageStr:
+            self.displayMessage("Got clear message from master")
             # Clear input buffer
+            self.numMappers = self.ORIGMAPPERS
             inputPath = os.path.join(
             os.getcwd(), "Test", self.homeDirName, self.identifier, "reducerInput.txt")
-            f = open(inputPath,'r+')
-            f.truncate(0)
+            # f = open(inputPath,'r+')
+            # f.truncate(0)
+            self.clearInputOutputBuffer()
             self.state = 0
 
 
@@ -169,6 +190,8 @@ class ReducerWorker:
         self.identifier = identifier
         self.reducingFunctionLocation = reducingFunctionLocation
         self.testcase = testcase
+
+        self.ORIGMAPPERS = numMappers
         self.numMappers = numMappers
         self.configData = self.readConfig()
         self.masterSendHost = self.configData["masterHost"]
@@ -178,8 +201,10 @@ class ReducerWorker:
         self.host = self.configData["host"]
         self.restart = restart
         self.DIE = False
+        self.STOP = False
         self.clearInputOutputBuffer()
         if self.configData["DEATH"] == "True":
+            self.displayMessage("Will die")
             self.DIE = True
         threading.Thread(target=self.listenRequests).start()
         threading.Thread(target=self.sendPulseToMaster).start()

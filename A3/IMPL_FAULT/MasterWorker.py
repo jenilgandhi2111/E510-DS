@@ -16,11 +16,22 @@ from MapperWorker import MapperWorker
 from ReducerWorker import ReducerWorker
 from signal import SIGINT
 from colorama import Fore, Style
+import logging
 
 
 
 class Master:
     def displayMessage(self,msg):
+        logger = logging.getLogger(__name__)
+        logging.basicConfig(filename='master.log', encoding='utf-8', level=logging.DEBUG)
+        logging.debug(Fore.GREEN
+            + Style.BRIGHT
+            + "> Master"
+            + "..........."
+            + Style.RESET_ALL
+            + Fore.LIGHTRED_EX
+            + msg
+            + Style.RESET_ALL)
         print(
             Fore.GREEN
             + Style.BRIGHT
@@ -66,7 +77,7 @@ class Master:
             self.displayMessage(" Sent stop message to all mappers "+ str(cntFailedMap))
             # We send clear message to all reducers to stop the stale data
             cntfailedRed = self.broadCastReducers(ClearMessage("master"))  # To indicate clearing of input buffers for reduce task
-            self.displayMessage(" Sent stop message to all reducers "+str(cntfailedRed))
+            self.displayMessage(" Sent clear message to all reducers "+str(cntfailedRed))
             self.SPWANREDFLAG = False
         
         # If reducers are not spawned we simply just respawn the mapper and restart its execution
@@ -91,15 +102,15 @@ class Master:
     def checkPulses(self):
         time.sleep(2)
         while True:
-            # print(self.mapperMetadata)
-            if self.currentState == 6:
+            # print(self.mapperMetadfata)
+            if self.currentState >= 6:
                 break
             for mapper in self.mapperMetadata:
                 # print(mapper)
                 if (
                     datetime.now().timestamp()
                     - self.mapperMetadata[mapper]["lastPulse"]
-                    > 2
+                    > 2.5
                 ):
                     self.displayMessage("Mapper "+mapper+" has died!")
                     # We respawn this mapper again
@@ -111,12 +122,13 @@ class Master:
                     if (
                         datetime.now().timestamp()
                         - self.reducerMetadata[reducer]["lastPulse"]
-                        > 2
+                        > 2.5
                     ):
+                        print(self.reducerMetadata[reducer]["lastPulse"],datetime.now().timestamp())
                         self.displayMessage("Reducer "+reducer+" has died!")
                         # respawn the reducer and make th state back to sendtoredcer
                         self.respawnReducer(reducer)
-            time.sleep(2)
+            time.sleep(4)
 
     def handleMessage(self, messageStr):
         if "_Done_" in messageStr:

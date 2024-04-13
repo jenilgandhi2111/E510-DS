@@ -9,28 +9,36 @@
       "recvPort": 5001,
       "host": "localhost",
       "masterPort": 5000,
-      "masterHost": "localhost"
+      "masterHost": "localhost",
+      "DEATH": "False",
+      "DIESTATE": "None"
     },
     "M2": {
       "id": "M2",
       "recvPort": 5002,
       "host": "localhost",
       "masterPort": 5000,
-      "masterHost": "localhost"
+      "masterHost": "localhost",
+      "DEATH": "False",
+      "DIESTATE": "Sending"
     },
     "M3": {
       "id": "M3",
       "recvPort": 5003,
       "host": "localhost",
       "masterPort": 5000,
-      "masterHost": "localhost"
+      "masterHost": "localhost",
+      "DEATH": "False",
+      "DIESTATE": "None"
     },
     "M4": {
       "id": "M4",
       "recvPort": 5004,
       "host": "localhost",
       "masterPort": 5000,
-      "masterHost": "localhost"
+      "masterHost": "localhost",
+      "DEATH": "False",
+      "DIESTATE": "None"
     }
   },
   "reducers": {
@@ -39,14 +47,16 @@
       "recvPort": 5005,
       "host": "localhost",
       "masterPort": 5000,
-      "masterHost": "localhost"
+      "masterHost": "localhost",
+      "DEATH": "False"
     },
     "R2": {
       "id": "R2",
       "recvPort": 5006,
       "host": "localhost",
       "masterPort": 5000,
-      "masterHost": "localhost"
+      "masterHost": "localhost",
+      "DEATH": "False"
     }
   }
 }

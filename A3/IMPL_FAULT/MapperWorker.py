@@ -20,6 +20,7 @@ from Message import Message
 from signal import SIGINT
 from colorama import Fore, Style
 import random
+import logging
 
 
 class MapperWorker:
@@ -51,14 +52,16 @@ class MapperWorker:
             sock.close()
             return True
         except Exception as E:
-            print(str(E))
+            self.displayMessage("Failed sending to reducer"+message.serializeMessage())
             return False
+
 
     """
     Description: Read the output file and send data according to hash function to each reducers.
     """
 
     def sendToReducerHandler(self, sendToReducerMessage: SendToReducerMessage):
+        time.sleep(1)
         # Loop through the output file and send message based on the hash function
         outputFile = os.path.join(
             os.getcwd(),
@@ -120,8 +123,10 @@ class MapperWorker:
         return hash_value % numReducers
         # return ord(word[0]) % numReducers
 
-    def displayMessage(self, msg):
-        print(
+    def displayMessage(self, msg,p=False):
+        logger = logging.getLogger(__name__)
+        logging.basicConfig(filename='mapper.log', encoding='utf-8', level=logging.DEBUG)
+        logging.debug(
             Fore.CYAN
             + Style.BRIGHT
             + "> Mapper-{"
@@ -132,6 +137,16 @@ class MapperWorker:
             + msg
             + Style.RESET_ALL
         )
+        
+        print(Fore.CYAN
+            + Style.BRIGHT
+            + "> Mapper-{"
+            + self.identifier
+            + "}......"
+            + Style.RESET_ALL
+            + Fore.YELLOW
+            + msg
+            + Style.RESET_ALL)
 
     """
     Description: Reads the message and designates each message to respective function
@@ -179,7 +194,7 @@ class MapperWorker:
     """
 
     def sendPulseToMaster(self):
-        time.sleep(0.1)
+        time.sleep(.5)
         # print(f"> Mapper{self.identifier}: Pulse started from mapper:", self.identifier)
         self.displayMessage(f"pulse started from mapper!")
         while True:
@@ -193,16 +208,19 @@ class MapperWorker:
     """
 
     def sendToMaster(self, message: Message):
-        time.sleep(0.01)
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # print(f"Sending to master on: {self.masterSendHost}:{self.masterSendPort}")
-        sock.connect((self.masterSendHost, self.masterSendPort))
-        sock.sendall(
-            bytes(message.serializeMessage(), "utf-8")
-        )  # Sends the object from the head of the queue after it is popped
-        sock.close()
-        return True
-
+        try:
+            time.sleep(0.01)
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            # print(f"Sending to master on: {self.masterSendHost}:{self.masterSendPort}")
+            sock.connect((self.masterSendHost, self.masterSendPort))
+            sock.sendall(
+                bytes(message.serializeMessage(), "utf-8")
+            )  # Sends the object from the head of the queue after it is popped
+            sock.close()
+            return True
+        except Exception as E:
+            self.displayMessage("Failed sending to master:",message.serializeMessage())
+            return False
     """
     Description: Executes the mapping task on the new process.
     """
@@ -246,6 +264,8 @@ class MapperWorker:
                 ],
                 shell=True,
             )  # Run the mapping function
+            self.groupBy()
+            time.sleep(1)
             self.jobStatus["status"] = "completed"
             self.displayMessage("has completed mapping task")
             # Send a done message to the master node
@@ -265,6 +285,45 @@ class MapperWorker:
             elif random.randint(1,1000)%self.DIEMOD:
                 os.kill(os.getpid(),SIGINT)
 
+    def clearFile(self):
+        outputFileLocation = os.path.join(
+            os.getcwd(),
+            "Test",
+            "Test" + str(self.testcase),
+            str(self.identifier),
+            "output.txt",
+        )
+        with open(outputFileLocation,'w') as file:
+            pass
+        return True
+    def groupBy(self):
+        '''
+        Description: Group the keys from the output file and store it back in it
+        '''
+        outputFileLocation = os.path.join(
+            os.getcwd(),
+            "Test",
+            "Test" + str(self.testcase),
+            str(self.identifier),
+            "output.txt",
+        )
+        outputDict = {}
+        with open(outputFileLocation, "r") as file:
+            data = file.read().split("\n")
+            for line in data:
+                if not self.SENDFLAG:  # Abrupt termination from sending data
+                    return -1
+                if len(line.split("\t")) == 2:
+                    key, value = line.split("\t")
+                    if key not in outputDict:
+                        outputDict[key] = []
+                    outputDict[key].append(value)
+        
+        self.clearFile()
+        with open(outputFileLocation,"a") as file:
+            for key in outputDict:
+                file.write(key+"\t"+str(outputDict[key])+"\n")
+        return True
     """
     Description: Init function
     """

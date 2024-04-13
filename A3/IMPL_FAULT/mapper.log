@@ -1,0 +1,136 @@
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mis listening on port:localhost:5001[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mis listening on port:localhost:5002[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mis listening on port:localhost:5003[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mis listening on port:localhost:5004[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mis listening on port:localhost:5001[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mis listening on port:localhost:5002[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mis listening on port:localhost:5003[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mis listening on port:localhost:5001[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mis listening on port:localhost:5002[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mis listening on port:localhost:5003[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mis listening on port:localhost:5001[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mis listening on port:localhost:5002[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mis listening on port:localhost:5003[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mis listening on port:localhost:5004[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M4}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mDIESTATEmapping[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mis listening on port:localhost:5002[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mis listening on port:localhost:5003[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mDIESTATEmapping[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas started mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mis listening on port:localhost:5001[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mpulse started from mapper![0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mhas completed mapping task[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mSent done message[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper received RTS.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mDone sending <Done> messages to reducers.[0m
+DEBUG:root:[36m[1m> Mapper-{M1}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M2}......[0m[33mMapper Killed.[0m
+DEBUG:root:[36m[1m> Mapper-{M3}......[0m[33mMapper Killed.[0m

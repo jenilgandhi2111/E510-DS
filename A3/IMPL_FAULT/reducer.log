@@ -1,0 +1,53 @@
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mis listening on localhost:5006[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis listening on localhost:5005[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mPulse started from reducer:R1[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis killed[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mis killed[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mis listening on localhost:5005[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis listening on localhost:5004[0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mis listening on localhost:5006[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mPulse started from reducer:R1[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis killed[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis listening on localhost:5004[0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mis listening on localhost:5006[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mPulse started from reducer:R1[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mPulse started from reducer:R2[0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mis killed[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis killed[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mis listening on localhost:5006[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis listening on localhost:5005[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mPulse started from reducer:R1[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mPulse started from reducer:R2[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis killed[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mis listening on localhost:5005[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis listening on localhost:5004[0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mis listening on localhost:5006[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mPulse started from reducer:R2[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mPulse started from reducer:R1[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mNum mappers:0[0m
+DEBUG:root:[35m[1m> Reducer-{R2}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R3}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mhas completed reducing task![0m
+DEBUG:root:[35m[1m> Reducer-{R1}.....[0m[92mis killed[0m
