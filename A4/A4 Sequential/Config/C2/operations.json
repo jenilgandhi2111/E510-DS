@@ -1,0 +1,4 @@
+[
+    {"operation":"set","key":"A","value":"2"},
+    {"operation":"get","key":"A"}
+]

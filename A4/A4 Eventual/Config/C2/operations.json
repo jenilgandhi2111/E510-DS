@@ -1,0 +1,7 @@
+[
+    {"operation":"get","key":"A"},
+    {"operation":"set","key":"A","value":"2"},
+    {"operation":"get","key":"A"},
+    {"operation":"set","key":"A","value":"3"},
+    {"operation":"get","key":"A"}
+]
