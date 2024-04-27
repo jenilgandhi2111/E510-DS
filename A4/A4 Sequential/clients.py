@@ -106,9 +106,14 @@ class Client():
             self.log(str(e))
             return False
         
+    def logToFile(self,message):
+        with open('./replica'+str(self.cid)+'.txt', 'a') as file:
+            file.write(message+'\n')
+
     def handleMessages(self,message:str):
         messageDict = ast.literal_eval(message)
         print(messageDict)
+        self.logToFile(message)
         # print(messageDict["type"])
         # if messageDict["type"] == "_GetAckMessage_":
         #     msg = GetAcknowledgementMessage.deserializeMessage(message)

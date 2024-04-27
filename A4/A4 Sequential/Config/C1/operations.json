@@ -1,4 +1,5 @@
 [
-  { "operation": "set", "key": "A", "value": "1" },
-  { "operation": "get", "key": "A" }
+  { "operation": "get", "key": "name" },
+  { "operation": "set", "key": "name", "value": "john" },
+  { "operation": "get", "key": "name" }
 ]

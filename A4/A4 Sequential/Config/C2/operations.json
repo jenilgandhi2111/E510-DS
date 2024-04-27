@@ -1,4 +1,4 @@
 [
-    {"operation":"set","key":"A","value":"2"},
-    {"operation":"get","key":"A"}
+  { "operation": "set", "key": "major", "value": "cs" },
+  { "operation": "get", "key": "major" }
 ]
