@@ -36,6 +36,13 @@ class Client():
             + Style.RESET_ALL
         )
 
+    def logRequests(self,request):
+        with open(os.path.join("Outputs",self.cid+"_requests.txt"),'a') as file:
+            file.write(f"{time.time}>{request}")
+    def logResponse(self,response):
+        with open(os.path.join("Outputs",self.cid+"_response.txt"),'a') as file:
+            file.write(f"{time.time}>{response}")
+        
     def executeOperations(self):
 
         try:
@@ -60,7 +67,7 @@ class Client():
                 if not self.dispatchRequest(msg):
                     raise "Failed sending message."
                 self.lamportTime+=self.increment
-                time.sleep(1)
+                time.sleep(3)
             return True
         except Exception as E:
             print("Error in execute operations:",E)
@@ -107,17 +114,16 @@ class Client():
             return False
         
     def logToFile(self,message):
-        with open('./replica'+str(self.cid)+'.txt', 'a') as file:
-            file.write(message+'\n')
+        with open('./client'+str(self.cid)+'.txt', 'a') as file:
+            file.write(f"{time.time()}>{message}"+'\n')
 
     def handleMessages(self,message:str):
         messageDict = ast.literal_eval(message)
-        print(messageDict)
-        self.logToFile(message)
-        # print(messageDict["type"])
-        # if messageDict["type"] == "_GetAckMessage_":
-        #     msg = GetAcknowledgementMessage.deserializeMessage(message)
-        #     self.log(f"Recieved value {msg.value.decode('utf-8')}")
+        if messageDict["type"] == "_GetReplyMessage_":
+            [KEY,VALUE] = messageDict["time"]["reply"].split(",")
+            KEY = KEY.split(":")[1]
+            VALUE = VALUE.split(":")[1][1:]
+            self.logToFile(f"{VALUE}")
 
     def listen(self):
         try:

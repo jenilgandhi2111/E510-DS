@@ -1,3 +1,6 @@
 [
-    {"operation":"set","key":"A","value":"1"}
+    {"operation":"get","key":"F"},
+    {"operation":"set","key":"A","value":"1"},
+    {"operation":"set","key":"F","value":"1"},
+    {"operation":"get","key":"A"}
 ]

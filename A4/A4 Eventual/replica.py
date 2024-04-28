@@ -3,6 +3,7 @@ import json
 import redis
 import socket
 import threading
+import time
 from message import Message
 from message import SetAcknowledgementMessage
 from message import GetAcknowledgementMessage
@@ -18,6 +19,9 @@ class Replica():
         self.id = int(id)
         self.host,self.port,self.redisHost,self.redisPort,self.replicas = self.readConfig()
         self.dataStore = redis.Redis(host=self.redisHost,port=self.redisPort)
+        self.dataStore.flushall(
+            
+        )
         self.checkRedis()
         self.run()
         
@@ -44,12 +48,12 @@ class Replica():
     def send(self,host,port,message):
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.connect((host, port))
+            sock.connect((host, int(port)))
             sock.sendall(bytes(message.serializeMessage(), "utf-8"))
-            # sock.sendall(bytes(message, "utf-8"))
             sock.close()
             return True
         except Exception as E:
+            self.log(str(E)+str(message.message)+str(host)+str(port))
             return False
     
     def sendMessage(self,message:Message):
@@ -124,8 +128,11 @@ class Replica():
     def Set(self,message:SetMessage): 
         # Everntual Consitency
         try:
-            if self.setHelper(message) and self.broadCast(message) == 0: # Using write before read strategy
-                return True
+            time.sleep(2)
+            if self.setHelper(message): # Using write before read strategy
+                if self.broadCast(message) == 0:
+                    return True
+                return False
             return False
         except Exception as e:
             self.log(str(e))

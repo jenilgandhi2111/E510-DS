@@ -169,7 +169,7 @@ class Replica():
         while True:
             if len(self.queue.elems) > 0:
                 self.log(self.queue.elems[0].nacks)
-                if self.queue.elems[0].nacks == 0:
+                if self.queue.elems[0].nacks <= 0:
                     # processs
                     if self.queue.elems[0].getMessageType() == "_GetMessage_":
                         self.log(str(self.id)+" is processing get messae")

@@ -38,7 +38,7 @@ class PoolClients():
     def spawnClient(self):
         try:
             for i in range(1,self.numClients+1):
-                if not self.spawnClientHelper("C"+str(i),self.basePort,self.commonHost):
+                if not self.spawnClientHelper("C"+str(i),self.commonHost,self.basePort):
                     raise "Failed spawning client"
                 self.log("Spawned client")
                 self.basePort+=1

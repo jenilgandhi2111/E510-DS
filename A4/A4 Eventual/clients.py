@@ -13,7 +13,8 @@ import ast
 
 class Client():
     def __init__(self,cid,recvHost,recvPort):
-        self.cid = "C"+str(cid)
+        self.cid = str(cid)
+        print(cid)
         self.recvHost = recvHost
         self.recvPort = recvPort
         self.replicas = self.readConfig() # Get data for replicas
@@ -34,6 +35,13 @@ class Client():
             + data
             + Style.RESET_ALL
         )
+    def logToFile(self,message):
+        with open('./logs/client'+str(self.cid)+'.txt', 'a') as file:
+            file.write(f"{time.time()}>{message}"+'\n')
+    
+    def logOperationsToFile(self,message):
+        with open("./logs/clientOpr"+str(self.cid)+".txt","a") as file:
+            file.write(f"{time.time()}>{message}\n")
 
     def executeOperations(self):
 
@@ -50,21 +58,23 @@ class Client():
 
                 if operation["operation"] == "set":
                     msg = SetMessage(operation["key"],operation["value"],self.cid,senderPort,senderHost,toPort,toHost)
+                    self.logOperationsToFile(f"SET {operation['key']} {operation['value']}")
                 else:
                     msg = GetMessage(operation["key"],self.cid,senderPort,senderHost,toPort,toHost)
+                    self.logOperationsToFile(f"GET {operation['key']}")
 
                 
                 self.log("OK Till here")
                 if not self.dispatchRequest(msg):
                     raise "Failed sending message."
-                time.sleep(1)
+                time.sleep(.1)
             return True
         except Exception as E:
             print("Error in execute operations:",E)
             return False
 
     def readConfig(self):
-        fileLoc = os.path.join("Config","StoreConfig","data.json")
+        fileLoc = os.path.join(os.getcwd(),"Config","StoreConfig","data.json")
         with open(fileLoc, "r") as file:
             jsonData = json.loads(file.read())
         data = []
@@ -73,6 +83,7 @@ class Client():
         return data
     
     def getOperations(self):
+        self.log(self.cid)
         fileLoc = os.path.join("Config",str(self.cid),"operations.json")
         with open(fileLoc, "r") as file:
             jsonData = json.loads(file.read())
@@ -105,12 +116,18 @@ class Client():
         print(messageDict["type"])
         if messageDict["type"] == "_GetAckMessage_":
             msg = GetAcknowledgementMessage.deserializeMessage(message)
-            self.log(f"Recieved value {msg.value.decode('utf-8')}")
+            self.log(f"Recieved value {msg.value}")
+            # self.logMessage(f"Recieved value {msg.value.decode('utf-8')}")
+            self.logToFile(f"{msg.value}")
+        else:
+            self.log(f"SETACK")
+            self.logToFile(f"SETACK")
 
     def listen(self):
         try:
+            self.log(f"is listening on {self.recvHost}:{self.recvPort}")
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.bind((self.recvPort, self.recvHost))
+            sock.bind((self.recvHost,self.recvPort))
             sock.listen(10)
             while True:
                 sck,addr = sock.accept()

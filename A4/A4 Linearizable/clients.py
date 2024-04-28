@@ -33,7 +33,13 @@ class Client():
             + data
             + Style.RESET_ALL
         )
-
+    def logToFile(self,message):
+        with open('./logs/client'+str(self.cid)+'.txt', 'a') as file:
+            file.write(f"{time.time()}>{message}"+'\n')
+    
+    def logOperationsToFile(self,message):
+        with open("./logs/clientOpr"+str(self.cid)+".txt","a") as file:
+            file.write(f"{time.time()}>{message}\n")
     def executeOperations(self):
 
         try:
@@ -49,8 +55,10 @@ class Client():
 
                 if operation["operation"] == "set":
                     msg = SetMessage(operation["key"],operation["value"],self.cid,senderPort,senderHost,toPort,toHost,True,0)
+                    self.logOperationsToFile(f"SET {operation['key']} {operation['value']}")
                 else:
                     msg = GetMessage(operation["key"],self.cid,senderPort,senderHost,toPort,toHost,True,0)
+                    self.logOperationsToFile(f"GET {operation['key']}")
 
                 
                 self.log("OK Till here")
@@ -101,11 +109,11 @@ class Client():
         
     def handleMessages(self,message:str):
         messageDict = ast.literal_eval(message)
-        print(messageDict)
-        # print(messageDict["type"])
-        # if messageDict["type"] == "_GetAckMessage_":
-        #     msg = GetAcknowledgementMessage.deserializeMessage(message)
-        #     self.log(f"Recieved value {msg.value.decode('utf-8')}")
+        if messageDict["type"] == "_GetReplyMessage_":
+            [KEY,VALUE] = messageDict["meta"]["reply"].split(",")
+            KEY = KEY.split(":")[1]
+            VALUE = VALUE.split(":")[1][1:]
+            self.logToFile(f"{VALUE}")
 
     def listen(self):
         try:

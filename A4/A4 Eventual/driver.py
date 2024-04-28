@@ -33,6 +33,7 @@ class Driver():
         self.numReplicas = numReplicas
         self.numClients = numClients
         self.spawnReplicas()
+        time.sleep(4)
         self.spawnPoolClients(numClients)
 
 

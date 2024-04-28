@@ -1,4 +1,8 @@
 [
     {"operation":"set","key":"A","value":"2"},
+    {"operation":"get","key":"A"},
+    {"operation":"get","key":"A"},
+    {"operation":"get","key":"A"},
+    {"operation":"set","key":"A","value":"440"},
     {"operation":"get","key":"A"}
 ]

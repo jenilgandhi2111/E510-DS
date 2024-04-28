@@ -46,7 +46,7 @@ class Message():
         self.generateMessage()
 
     def generateMessage(self):
-        self.hash = hash(str(self.meta))
+        self.hash = hash(str(self.timeStamp))
         self.message = {"type":self.messageType,"sender":self.sender,"senderPort":self.senderPort,"senderHost":self.senderHost,"toPort":self.toPort,"toHost":self.toHost,"meta":self.meta,"broadcast":self.broadcast,"nacks":self.nacks,"hash":self.hash,"time":self.timeStamp}
 
     def getReplyMessage(self,sender,broadcast = False,nacks=0):

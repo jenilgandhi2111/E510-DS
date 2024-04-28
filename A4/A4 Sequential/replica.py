@@ -130,13 +130,7 @@ class Replica():
             msg = GetMessage.deserializeMessage(message)
             msg.nacks = 0
             print(msg.timeStamp)
-
-            # if msg.broadcast:
-            #     msg.broadcast = False
-            #     self.broadcastMessage(msg)
-            # # self.queue.insert(msg,comparator=self.comparator)
             heapq.heapify(self.queue)
-            # heapq.heapify(self.queue, msg)
             heapq.heappush(self.queue,msg)
         elif messageDict["type"] == "_ACK_":
             temp  = ast.literal_eval(message)
